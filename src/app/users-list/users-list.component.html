@@ -1,7 +1,7 @@
 <div class="line">
   <mat-form-field appearance="outline">
     <mat-label>Sort:</mat-label>
-    <mat-select>
+    <mat-select #list (selectionChange)="sort(list.value)">
       <mat-option value="0">From "A" to "Z"</mat-option>
       <mat-option value="1">From "Z" to "A"</mat-option>
     </mat-select>
@@ -9,15 +9,16 @@
 
   <mat-form-field>
     <mat-label>Search</mat-label>
-    <input matInput placeholder="User search">
+    <input matInput placeholder="User search" #input (keyup.enter)="search(input.value)">
+    <mat-icon matSuffix (click)="search(input.value)">search</mat-icon>
   </mat-form-field>
 </div>
 
 <mat-selection-list #user>
   <mat-list-option *ngFor="let user of usersList; let i = index" [ngClass]="{'grey': i%2}">
     <div>
-      <span class="item">{{i}} - {{user.name}}</span>
-      <span class="item">{{user.username}}</span>
+      <span class="item">{{i}} - {{user.username}}</span>
+      <span class="item">{{user.name}}</span>
       <span class="item" *ngIf="user.role === 'Admin'">{{user.role}}</span>
     </div>
   </mat-list-option>

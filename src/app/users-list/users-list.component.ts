@@ -16,4 +16,12 @@ export class UsersListComponent implements OnInit {
     this.usersList = this.usersServise.getUserList();
   }
 
+  search(query: string) {
+    this.usersList = this.usersServise.userSearch(query);
+  }
+
+  sort(value: string) {
+    return this.usersList = this.usersServise.userSort(value);
+  }
+
 }
