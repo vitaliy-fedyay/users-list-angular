@@ -10,6 +10,10 @@ import { User } from '../shared/user';
 export class UsersListComponent implements OnInit {
 
   usersList: User[] = [];
+  name: string;
+  username: string;
+  role: string;
+
   constructor(public usersServise: UsersService) { }
 
   ngOnInit(): void {
@@ -24,4 +28,15 @@ export class UsersListComponent implements OnInit {
     return this.usersList = this.usersServise.userSort(value);
   }
 
+  addUser() {
+    this.usersServise.addUser({
+      id: 1,
+      name: this.name,
+      username: this.username,
+      email: '',
+      role: this.role,
+      phone: '',
+      website: ''
+    })
+  }
 }

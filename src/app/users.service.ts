@@ -117,4 +117,8 @@ export class UsersService {
     const direction = !!parseInt(value, 10) ? -1 : 1;
     return this.usersList.sort((a, b) => direction * (a.username > b.username ? 1 : -1));
   }
+
+  addUser(user: User) {
+    this.usersList.unshift(user)
+  }
 }

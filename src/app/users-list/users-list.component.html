@@ -14,12 +14,35 @@
   </mat-form-field>
 </div>
 
+<div class="line">
+  <mat-form-field class="line__line__item" appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Name" [(ngModel)]="name">
+  </mat-form-field>
+
+  <mat-form-field class="line__line__item" appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="Username" [(ngModel)]="username">
+  </mat-form-field>
+
+  <mat-form-field class="line__line__item" appearance="outline">
+    <mat-label>User role</mat-label>
+    <mat-select [(ngModel)]="role">
+      <mat-option value="Admin">Admin</mat-option>
+      <mat-option value="User">User</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<button mat-raised-button color="primary" (click)="addUser()">Add</button>
+
 <mat-selection-list #user>
   <mat-list-option *ngFor="let user of usersList; let i = index" [ngClass]="{'grey': i%2}">
     <div>
-      <span class="item">{{i}} - {{user.username}}</span>
-      <span class="item">{{user.name}}</span>
-      <span class="item" *ngIf="user.role === 'Admin'">{{user.role}}</span>
+      <span class="line__item">{{i}} - {{user.username}}</span>
+      <span class="line__item">{{user.name}}</span>
+      <span class="line__item" *ngIf="user.role === 'Admin'">{{user.role}}</span>
     </div>
   </mat-list-option>
 </mat-selection-list>
