@@ -13,6 +13,7 @@ export class UsersListComponent implements OnInit {
   name: string;
   username: string;
   role: string;
+  selectedList: User[];
 
   constructor(public usersServise: UsersService) { }
 
@@ -38,5 +39,17 @@ export class UsersListComponent implements OnInit {
       phone: '',
       website: ''
     })
+  }
+
+  selectItems(users: any) {
+    this.selectedList = [];
+    users.forEach(element => {
+      this.selectedList.push(element.value);
+    });
+  }
+
+  deleteUsers() {
+    this.usersServise.deleteUsers(this.selectedList)
+    this.usersList = this.usersServise.getUserList();
   }
 }

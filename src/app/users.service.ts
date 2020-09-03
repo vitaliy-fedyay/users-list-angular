@@ -121,4 +121,10 @@ export class UsersService {
   addUser(user: User) {
     this.usersList.unshift(user)
   }
+
+  deleteUsers(users: User[]) {
+    users.forEach(user => {
+      this.usersList = this.usersList.filter(item => item.id !== user.id);
+    })
+  }
 }

@@ -1,15 +1,30 @@
-.line__item {
-  width: 200px;
-  display: inline-block;
-}
-
-.grey {
-  background-color: #ddd;
-}
-
 .line {
   margin: 2%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+.line__item {
+  width: 200px;
+  display: inline-block;
+}
+
+.button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2%;
+}
+
+.list {
+  margin-bottom: 2%;
+}
+
+.button button {
+  width: 150px;
+}
+
+.grey {
+  background-color: #ddd;
 }
